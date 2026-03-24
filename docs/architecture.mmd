@@ -1,0 +1,40 @@
+graph TD
+    Boss["👑 老板<br/>Feishu · Telegram · Signal"]
+    
+    Boss -->|提需求| Taizi["📋 总裁办<br/>消息分拣"]
+    
+    Taizi -->|建单| PMO["📜 PMO<br/>规划中枢"]
+    
+    PMO -->|提交审核| Risk["🔍 风控部<br/>审议把关"]
+    
+    Risk -->|打回重做| PMO
+    Risk -->|审批通过| Dispatch["📮 调度中心<br/>任务派发"]
+    
+    Dispatch --> Finance["💰 财务部<br/>数据资源"]
+    Dispatch --> PR["📝 公关部<br/>文档规范"]
+    Dispatch --> Ops["⚔️ 运维部<br/>工程实现"]
+    Dispatch --> QA["⚖️ QA部<br/>合规审计"]
+    Dispatch --> RD["🔧 研发部<br/>基础设施"]
+    Dispatch --> HR["📋 HR部<br/>人事管理"]
+    
+    Finance -->|汇报| Dispatch
+    PR -->|汇报| Dispatch
+    Ops -->|汇报| Dispatch
+    QA -->|汇报| Dispatch
+    RD -->|汇报| Dispatch
+    HR -->|汇报| Dispatch
+    
+    Dispatch -->|结案报告| Boss
+    
+    Morning["🌅 晨会播报官<br/>每日早报"]
+    Morning -.->|推送| Boss
+
+    classDef boss fill:#fbbf24,stroke:#f59e0b,color:#000
+    classDef mgmt fill:#818cf8,stroke:#6366f1,color:#fff
+    classDef exec fill:#34d399,stroke:#10b981,color:#000
+    classDef special fill:#f472b6,stroke:#ec4899,color:#000
+    
+    class Boss boss
+    class Taizi,PMO,Risk,Dispatch mgmt
+    class Finance,PR,Ops,QA,RD,HR exec
+    class Morning special
